@@ -209,7 +209,7 @@ CONTACTS = {
     "general": "info@auvert.ch"
 }
 ORGANISATION_WEBSITE = {
-    'name': "www.auvert.org",
-    'url': "https://www.auvert.org"
+    'name': "www.auvert.ch",
+    'url': "https://www.auvert.ch"
 }
 STYLES = {'static': ['auvert/css/customize.css']}
