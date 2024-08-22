@@ -1,7 +1,9 @@
 .juntagrico-logo {
     /* See https://juntagrico.readthedocs.io/en/latest/theming.html#change-the-logo to change the logo */
+    background: url(/static/auvert/img/logo.png) center center; 
     background-size: contain;
+    background-repeat: no-repeat;
     display: inline-block;
-    width: 580px;
-    height: 161px;
+    width: 153px;
+    height: 94px;
 }
