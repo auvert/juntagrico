@@ -51,7 +51,7 @@
                 <label class="col-md-6 col-form-label">
                     {% if shares.existing_main_member == 0 %}
                         {% blocktrans trimmed %}
-                        Anteilschein(e) im Wert von {{ c_currency }} {{ c_share_price }} erwerben.
+                        Anteilschein(e) im Wert von je {{ c_currency }} {{ c_share_price }} erwerben.
                         {% endblocktrans %}
                     {% else %}
                         {% blocktrans trimmed with msc=member.active_shares_count%}
