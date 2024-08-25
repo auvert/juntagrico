@@ -13,7 +13,7 @@ SECRET_KEY = os.environ.get('JUNTAGRICO_SECRET_KEY')
 
 DEBUG = os.environ.get("JUNTAGRICO_DEBUG", 'False')=='True'
 
-ALLOWED_HOSTS = ['auvert.juntagrico.science', 'localhost',]
+ALLOWED_HOSTS = ['my.auvert.ch','auvert.juntagrico.science', 'localhost',]
 
 ADMINS = (
     ('Admin', os.environ.get('JUNTAGRICO_ADMIN_EMAIL')),
