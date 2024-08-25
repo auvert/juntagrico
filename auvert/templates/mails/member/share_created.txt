@@ -12,7 +12,7 @@
 {% vocabulary "share_pl" as v_share_pl %}
 {% trans "Hallo" %}
 
-{% blocktrans with sc=shares|length%}Du erhältst die Bestätigung für {{sc}} {{ v_share_pl }} an der {{ v_d_enriched_organisation }}. Du erhältst dafür von uns eine Rechnung mit separaten Mail.{% endblocktrans %}:
+{% blocktrans with sc=shares|length%}Du erhältst die Bestätigung für {{sc}} {{ v_share_pl }} an der {{ v_d_enriched_organisation }}. Du erhältst dafür von uns eine Rechnung mit separaten Mail.{% endblocktrans %}
 
 {% blocktrans %}Falls du keinen (zusätzlichen) Anteilschein bestellen wolltest und das bei der Anmeldung so vermerkt hast, kannst du dieses Mail ignorieren.{% endblocktrans %}
 
