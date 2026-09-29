@@ -1,10 +1,16 @@
-{% extends "createsubscription/select_shares.html" %}
+{% extends "juntagrico/signup/base.html" %}
+{% load crispy_forms_tags %}
 {% load i18n %}
 {% load static %}
 {% load juntagrico.config %}
 
-{% block intro_2 %}
-    {{ block.super }}
+{% block title %}
+    {% blocktrans with v_share_pl=vocabulary.share_pl %}{{ v_share_pl }} erwerben{% endblocktrans %}
+{% endblock %}
+
+{% block intro %}
+    <p>
+    {% block intro_2 %}
     <div class="row mb-4">
       <div class="col-md-12">
         Wenn du ein Abo von auVert🥕 beziehen möchtest, empfehlen wir dir, auch
@@ -16,4 +22,18 @@
         und Wahlrecht gemäss Statuten.
       </div>
     </div>
+    {% endblock %}
+    </p>
+{% endblock %}
+
+{% block content %}
+    {% crispy form %}
+{% endblock %}
+
+{% block scripts %}
+    <script type="text/javascript" src="{% static 'juntagrico/external/bootstrap-input-spinner.js' %}">
+    </script>
+    <script type="text/javascript">
+        $("input[type='number']").inputSpinner();
+    </script>
 {% endblock %}
