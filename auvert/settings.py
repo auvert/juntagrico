@@ -235,3 +235,10 @@ ORGANISATION_WEBSITE = {
     'url': "https://www.auvert.ch"
 }
 STYLES = {'static': ['auvert/css/customize.css']}
+
+# Staging
+if os.environ.get('JUNTAGRICO_STAGING') == '1':
+    # staging URL erlauben
+    ALLOWED_HOSTS.append('auvert-staging.juntagrico.science')
+    # E-Mails Deaktivieren
+    EMAIL_BACKEND = "django.core.mail.backends.dummy.EmailBackend"
