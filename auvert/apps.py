@@ -6,4 +6,7 @@ class AuvertConfig(AppConfig):
 
     def ready(self):
         from juntagrico.forms import RegisterMemberForm
-        RegisterMemberForm.text['accept_wo_docs'] = 'Hiermit beantrage ich meine Aufnahme in der {}.'
+        # juntagrico's agb_label() formats this via .format(organization=...),
+        # i.e. with a NAMED argument, so the placeholder must be {organization}.
+        # A bare positional {} raises IndexError on GET /signup/.
+        RegisterMemberForm.text['accept_wo_docs'] = 'Hiermit beantrage ich meine Aufnahme in der {organization}.'
