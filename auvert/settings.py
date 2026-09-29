@@ -242,3 +242,5 @@ if os.environ.get('JUNTAGRICO_STAGING') == '1':
     ALLOWED_HOSTS.append('auvert-staging.juntagrico.science')
     # E-Mails Deaktivieren
     EMAIL_BACKEND = "django.core.mail.backends.dummy.EmailBackend"
+    # change background color
+    STYLES['static'].append('css/staging.css')
