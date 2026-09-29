@@ -16,7 +16,6 @@
         <th class="namecol"></th>
         {% for product in products %}
             <th colspan="{{ product.sizes.on_depot_list.count }}" class="top-border {% if forloop.first %}left-border{% endif %}">{{ product.name }}
-                {% if product.description|safe %}<br /><span class="proddescr">{{ product.description }}</span>{% endif %}
             </th>
         {% endfor %}
         <th colspan="2" class="top-border right-border"></th>
