@@ -130,6 +130,12 @@ EMAIL_USE_SSL = os.environ.get('JUNTAGRICO_EMAIL_SSL', 'False')=='True'
 LANGUAGE_CODE = 'de'
 DJRICHTEXTFIELD_CONFIG = defaults.richtextfield_config(LANGUAGE_CODE)
 
+# Translation overrides. LOCALE_PATHS takes precedence over app catalogs, so
+# corrected strings here override juntagrico's packaged ones. Fixes the broken
+# German signup "AGB" labels in juntagrico 2.0.10 (positional "{}" placeholder
+# -> IndexError in agb_label()); see locale/de/LC_MESSAGES/django.po.
+LOCALE_PATHS = [BASE_DIR / 'locale']
+
 TIME_ZONE = 'Europe/Zurich'
 
 USE_I18N = True
