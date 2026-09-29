@@ -4,6 +4,7 @@ Django settings for auvert project.
 
 import os
 from pathlib import Path
+from juntagrico import defaults
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -52,12 +53,14 @@ INSTALLED_APPS = [
     'django.contrib.admin',
     'auvert',
     'juntagrico',
-    'fontawesomefree',
     'import_export',
     'impersonate',
     'crispy_forms',
     'adminsortable2',
     'polymorphic',
+    'crispy_bootstrap4',
+    'django_select2',
+    'djrichtextfield',    
 ]
 
 ROOT_URLCONF = 'auvert.urls'
@@ -125,6 +128,7 @@ EMAIL_USE_SSL = os.environ.get('JUNTAGRICO_EMAIL_SSL', 'False')=='True'
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
 LANGUAGE_CODE = 'de'
+DJRICHTEXTFIELD_CONFIG = defaults.richtextfield_config(LANGUAGE_CODE)
 
 TIME_ZONE = 'Europe/Zurich'
 
@@ -171,12 +175,6 @@ AUTHENTICATION_BACKENDS = (
 )
 
 LOGIN_REDIRECT_URL = "/"
-
-
-# django.contrib.sessions Settings
-
-SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
-
 
 # impersonate Settings
 
@@ -235,6 +233,8 @@ ORGANISATION_WEBSITE = {
     'url': "https://www.auvert.ch"
 }
 STYLES = {'static': ['auvert/css/customize.css']}
+
+EMAIL_BACKEND='juntagrico.backends.email.EmailBackend'
 
 # Staging
 if os.environ.get('JUNTAGRICO_STAGING') == '1':
