@@ -224,6 +224,10 @@ ORGANISATION_BANK_CONNECTION = {"PC" : "-",
             "ESR" : ""}
 SHARE_PRICE = "150"
 REQUIRED_SHARES = 0
+ENABLE_SHARES = False
+REQUIRE_SUBSCRIPTION = True
+BYLAWS = "https://auvert.ch/wp-content/uploads/2022/05/20220214_Statuten-Genossenschaft-auVert.pdf"
+BUSINESS_REGULATIONS = "https://auvert.ch/wp-content/uploads/2024/08/2024_Betriebsreglement-auVert.pdf"
 
 CONTACTS = {
     "general": "info@auvert.ch"

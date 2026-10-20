@@ -7,3 +7,8 @@
     width: 153px;
     height: 94px;
 }
+
+/* signup: membership application checkbox is still required, just hide the asterisk */
+#div_id_agb .asteriskField {
+    display: none;
+}
