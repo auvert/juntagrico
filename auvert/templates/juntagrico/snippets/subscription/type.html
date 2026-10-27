@@ -1,0 +1,16 @@
+{% extends "juntagrico/snippets/subscription/type.html" %}
+{% load i18n %}
+{% load juntagrico.common %}
+
+{# auVert prices extra subscriptions per delivery, not per year #}
+{% block price %}
+    {% if type.is_extra and not type.has_periods and not type.trial_days %}
+        <div class="type-details type-price">
+            <strong>{{ type.price|price }}</strong>
+            {% trans "pro Lieferung" %}
+            {% include "juntagrico/snippets/subscription/depot_fee.html" %}
+        </div>
+    {% else %}
+        {{ block.super }}
+    {% endif %}
+{% endblock %}
