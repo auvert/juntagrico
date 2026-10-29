@@ -3,6 +3,7 @@ Django settings for auvert project.
 """
 
 import os
+from datetime import timedelta
 from pathlib import Path
 from juntagrico import defaults
 
@@ -60,7 +61,8 @@ INSTALLED_APPS = [
     'polymorphic',
     'crispy_bootstrap4',
     'django_select2',
-    'djrichtextfield',    
+    'djrichtextfield',
+    'axes',
 ]
 
 ROOT_URLCONF = 'auvert.urls'
@@ -98,7 +100,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'impersonate.middleware.ImpersonateMiddleware',
-    'django.contrib.sites.middleware.CurrentSiteMiddleware'
+    'django.contrib.sites.middleware.CurrentSiteMiddleware',
+    'axes.middleware.AxesMiddleware',
 ]
 
 # Database
@@ -170,16 +173,29 @@ SITE_ID = 1
 # django.contrib.auth Settings
 
 AUTHENTICATION_BACKENDS = (
+    'axes.backends.AxesStandaloneBackend',
     'juntagrico.util.auth.AuthenticateWithEmail',
     'django.contrib.auth.backends.ModelBackend'
 )
 
 LOGIN_REDIRECT_URL = "/"
 
+
+# axes Settings (Brute-Force-Schutz: IP nach 3 fehlgeschlagenen Logins für 30 Minuten sperren)
+
+AXES_FAILURE_LIMIT = 3
+AXES_COOLOFF_TIME = timedelta(minutes=30)
+AXES_IPWARE_META_PRECEDENCE_ORDER = [
+    'HTTP_X_FORWARDED_FOR',
+    'REMOTE_ADDR',
+]
+
 # impersonate Settings
 
 IMPERSONATE = {
     'REDIRECT_URL': '/my/profile',
+    # nur Administrator:innen dürfen andere Personen imitieren
+    'REQUIRE_SUPERUSER': True,
 }
 
 
