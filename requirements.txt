@@ -1,4 +1,5 @@
 juntagrico~=2.0.10
+juntagrico-billing~=2.0.1
 gunicorn==23.0.0
 psycopg>=3.1.8
 django-axes[ipware]~=8.3.1

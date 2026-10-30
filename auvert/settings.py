@@ -264,3 +264,6 @@ if os.environ.get('JUNTAGRICO_STAGING') == '1':
     EMAIL_BACKEND = "django.core.mail.backends.dummy.EmailBackend"
     # change background color
     STYLES['static'].append('css/staging.css')
+    # Rechnungsmodul (juntagrico-billing) zum Testen aktivieren
+    INSTALLED_APPS.insert(INSTALLED_APPS.index('juntagrico'), 'juntagrico_billing')
+    BILLS_USERMENU = True
